@@ -15,7 +15,11 @@ Then get your Mario 64 rom and rename to baserom.us.z64 or whatever region rom y
 # Credits
 
 The n64decomp team
+
 sm64pclauncher for the python snippets I found to help me.
+
 The n64pc project.
+
 The SM64 PC PORT CENTRAL discord server.
+
 Thank you all for your immense work that I didn't do :)
