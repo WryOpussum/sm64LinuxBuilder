@@ -14,6 +14,14 @@ Dependencies for Arch btw: sudo pacman -S python-gobject gtk4 base-devel python 
 
 Then get your Mario 64 rom and rename to baserom.us.z64 or whatever region rom your using and move the rom to the root folder of this repo.
 
+# Goals/Todos
+
+add support for patches
+
+Make it so you can add custom repos
+
+Make this as good as sm64pcbuilder2 :)
+
 # Credits
 
 The n64decomp team
