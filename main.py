@@ -248,13 +248,13 @@ class MainWindow(Gtk.ApplicationWindow):
     compilationSpeed = " -j2"
     
     
-    def launchSm64ex(self, widget, menu):
+    def launchSm64ex(self, menu):
 
             os.system('./sm64ex/build/us_pc/sm64.us.f3dex2e ')
 
-    def launchSm64plus(self, widget, menu):
+    def launchSm64plus(self, menu):
             
-            os.system('./sm64plus/build/us_pc/sm64.us ')
+            os.system('./sm64plus/build/us_pc/sm64.us.f3dex2e ')
             
     def launchSm64excoop(self, menu):         
             
@@ -273,7 +273,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def compileSm64plus(self, menu):
             
             print(compilationSpeed)
-            os.system('git clone https://github.com/MorsGames/sm64plus.git && cp -r baserom.us.z64 sm64plus && cd sm64ex && make' + compilationSpeed)
+            os.system('git clone https://github.com/MorsGames/sm64plus.git && cp -r baserom.us.z64 sm64plus && cd sm64plus && make' + compilationSpeed)
             n.show()
 
     def compileRender96(self, menu):
