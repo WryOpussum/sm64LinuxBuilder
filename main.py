@@ -26,15 +26,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.set_child(self.box1)
 
 
-        # setup compile functions
         
-        def compileSm64ex(self, widget):
-
-            print(compilationSpeed)
-            os.system('git clone https://github.com/sm64pc/sm64ex.git && cp -r baserom.us.z64 sm64ex && cd sm64ex && make' + compilationSpeed)
-
-
-            n.show()
 
 
 
@@ -226,6 +218,36 @@ class MainWindow(Gtk.ApplicationWindow):
         launch_page_4.connect('clicked', self.launchSm64plus)
 
 
+        #Moon64
+        box_page_5 = Gtk.Box.new(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        stack.add_titled(child=box_page_5, name='Moon64', title='Moon64')
+
+
+        build_page_5 = Adw.SplitButton(label="Start Compilation")
+        build_page_5.set_menu_model(menu)
+        build_page_5.set_halign(align=Gtk.Align.CENTER)
+        build_page_5.set_valign(align=Gtk.Align.START)
+        build_page_5.set_hexpand(expand=True)
+        build_page_5.set_vexpand(expand=True)
+        launch_page_5 = Gtk.Button(label="Launch")
+        launch_page_5.set_halign(align=Gtk.Align.CENTER)
+        launch_page_5.set_valign(align=Gtk.Align.START)
+        launch_page_5.set_hexpand(expand=True)
+        launch_page_5.set_vexpand(expand=True)
+
+        description_page_5 = Gtk.Label.new(str='Mario 64 with achivements!.')
+        description_page_5.set_halign(align=Gtk.Align.CENTER)
+        description_page_5.set_valign(align=Gtk.Align.END)
+        description_page_5.set_hexpand(expand=True)
+        description_page_5.set_vexpand(expand=True)
+
+        box_page_5.append(child=description_page_5)
+        box_page_5.append(child=build_page_5)
+        box_page_5.append(child=launch_page_5)
+        build_page_5.connect('clicked', self.compileMoon64)
+        launch_page_5.connect('clicked', self.launchMoon64)
+
+
 
 
 
@@ -254,7 +276,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
     def launchSm64plus(self, menu):
             
-            os.system('./sm64plus/build/us_pc/sm64.us.f3dex2e ')
+            os.system('cd sm64plus/build/us_pc ./sm64plus/build/us_pc/sm64.us.f3dex2e ')
             
     def launchSm64excoop(self, menu):         
             
@@ -264,6 +286,17 @@ class MainWindow(Gtk.ApplicationWindow):
             
             os.system('cd Render96ex/build/us_pc/ && ./sm64.us.f3dex2e ')
             
+    def launchMoon64(self, menu):
+
+            os.system('cd Moon64/build/us_pc/ && ./moon64.us.f3dex2e ')
+
+    def compileMoon64(self, menu):
+
+            print(compilationSpeed)
+            os.system('git clone https://github.com/UnderVolt/Moon64.git && cp -r baserom.us.z64 Moon64 && cd Moon64 && make' + compilationSpeed)
+            n.show()
+
+
     def compileSm64ex(self, menu):
             
             print(compilationSpeed)
@@ -273,7 +306,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def compileSm64plus(self, menu):
             
             print(compilationSpeed)
-            os.system('git clone https://github.com/MorsGames/sm64plus.git && cp -r baserom.us.z64 sm64plus && cd sm64plus && make' + compilationSpeed)
+            os.system('git clone https://github.com/MorsGames/sm64plus.git && cp -r baserom.us.z64 sm64plus && cd sm64plus && make CUSTOM_TEXTURES=0' + compilationSpeed)
             n.show()
 
     def compileRender96(self, menu):
