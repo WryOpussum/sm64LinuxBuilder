@@ -1,0 +1,7 @@
+data/com.github.WryOpussum.sm64LinuxBuilder.desktop.in
+data/com.github.WryOpussum.sm64LinuxBuilder.appdata.xml.in
+data/com.github.WryOpussum.sm64LinuxBuilder.gschema.xml
+src/window.ui
+src/main.py
+src/window.py
+

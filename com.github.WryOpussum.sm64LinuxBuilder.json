@@ -1,0 +1,41 @@
+{
+    "app-id" : "com.github.WryOpussum.sm64LinuxBuilder",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "42",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "sm64linuxbuilder",
+    "finish-args" : [
+        "--allow=devel",
+    	"--filesystem=home",
+    	"--share=ipc",
+    	"--socket=x11",
+    	"--socket=wayland",
+    	"--device=dri",
+    	"--talk-name=org.freedesktop.Flatpak"
+
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "sm64linuxbuilder",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/joshuaelm/Projects/sm64LinuxBuilder"
+                }
+            ]
+        }
+    ]
+}

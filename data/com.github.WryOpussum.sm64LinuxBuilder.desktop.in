@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=sm64linuxbuilder
+Exec=sm64linuxbuilder
+Icon=com.github.WryOpussum.sm64LinuxBuilder
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

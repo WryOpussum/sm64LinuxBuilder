@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="sm64linuxbuilder">
+	<schema id="com.github.WryOpussum.sm64LinuxBuilder" path="/com/github/WryOpussum/sm64LinuxBuilder/">
+	</schema>
+</schemalist>
