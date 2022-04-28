@@ -2,6 +2,8 @@
 A sm64LinuxBuilder built in python and GTK4 and Libadwaita.
 
 
+# DO NOT USE THIS BRANCH YET!!!
+
 
 # Before running the software
 
