@@ -357,7 +357,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def compileSm64ex(self, menu):
 
             print(compilationSpeed)
-            os.system(f'git clone https://github.com/sm64pc/sm64ex.git && cp -r {RomDir} sm64ex/baserom.us.z64 && cd sm64ex && make' + compilationSpeed)
+            os.system(f'git clone https://github.com/sm64pc/sm64ex.git && cp -r baserom.us.z64 sm64ex/baserom.us.z64 && cd sm64ex && make' + compilationSpeed)
             n.show()
 
     def compileSm64plus(self, menu):
