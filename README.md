@@ -12,7 +12,15 @@ A sm64LinuxBuilder built in python and GTK4 and Libadwaita.
 
 - Dependencies for Arch btw: `sudo pacman -S python-gobject gtk4 base-devel python sdl2 glew`
 
-## Before you compile
+# Getting the software
+
+Go get the latest release
+
+# Running the software
+
+double click it duh
+
+## Before you compile a repo
 
  Make sure you select your rom with the top right button :)
 
