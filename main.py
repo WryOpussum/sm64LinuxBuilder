@@ -1,4 +1,4 @@
-# window.py
+# main.py
 #
 # Copyright 2022 WryOpussum
 #
@@ -70,7 +70,9 @@ class MainWindow(Gtk.ApplicationWindow):
 
         self.adw_flap = Adw.Flap.new()
         self.adw_flap.set_reveal_flap(reveal_flap=True)
-        self.adw_flap.set_locked(locked=True)
+        self.adw_flap.set_locked(locked=False)
+        self.adw_flap.set_swipe_to_close(swipe_to_close=True)
+        self.adw_flap.props.transition_type = Adw.FlapTransitionType.SLIDE
         self.box1.append(child=self.adw_flap)
         stack = Gtk.Stack.new()
         self.adw_flap.set_content(content=stack)
@@ -304,7 +306,34 @@ class MainWindow(Gtk.ApplicationWindow):
         launch_page_5.connect('clicked', self.launchMoon64)
 
 
+        #sm64ex-alo
+        box_page_1 = Gtk.Box.new(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        stack.add_titled(child=box_page_1, name='sm64ex-alo', title='sm64ex-alo')
 
+
+        build_page_1 = Adw.SplitButton(label="Start Compilation")
+        build_page_1.set_menu_model(menu)
+        build_page_1.set_halign(align=Gtk.Align.CENTER)
+        build_page_1.set_valign(align=Gtk.Align.START)
+        build_page_1.set_hexpand(expand=True)
+        build_page_1.set_vexpand(expand=True)
+        launch_page_1 = Gtk.Button(label="Launch")
+        launch_page_1.set_halign(align=Gtk.Align.CENTER)
+        launch_page_1.set_valign(align=Gtk.Align.START)
+        launch_page_1.set_hexpand(expand=True)
+        launch_page_1.set_vexpand(expand=True)
+
+        description_page_1 = Gtk.Label.new(str='Sm64ex-alo is generic mario 64 with quality of life features and isnt outdated.')
+        description_page_1.set_halign(align=Gtk.Align.CENTER)
+        description_page_1.set_valign(align=Gtk.Align.END)
+        description_page_1.set_hexpand(expand=True)
+        description_page_1.set_vexpand(expand=True)
+
+        box_page_1.append(child=description_page_1)
+        box_page_1.append(child=build_page_1)
+        box_page_1.append(child=launch_page_1)
+        build_page_1.connect('clicked', self.compileSm64exalo)
+        launch_page_1.connect('clicked', self.launchSm64exalo)
 
 
         # Sidebar
@@ -330,6 +359,9 @@ class MainWindow(Gtk.ApplicationWindow):
     def launchSm64ex(self, menu):
 
             os.system('./sm64ex/build/us_pc/sm64.us.f3dex2e ')
+    def launchSm64exalo(self, menu):
+
+            os.system('./sm64ex-alo/build/us_pc/sm64.us.f3dex2e ')
 
     def launchSm64plus(self, menu):
 
@@ -358,6 +390,11 @@ class MainWindow(Gtk.ApplicationWindow):
 
             print(compilationSpeed)
             os.system(f'git clone https://github.com/sm64pc/sm64ex.git && cp -r baserom.us.z64 sm64ex/baserom.us.z64 && cd sm64ex && make' + compilationSpeed)
+            n.show()
+    def compileSm64exalo(self, menu):
+
+            print(compilationSpeed)
+            os.system(f'git clone https://github.com/AloXado320/sm64ex-alo && cp -r baserom.us.z64 sm64ex-alo/baserom.us.z64 && cd sm64ex-alo && make' + compilationSpeed)
             n.show()
 
     def compileSm64plus(self, menu):
