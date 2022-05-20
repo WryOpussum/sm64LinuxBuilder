@@ -14,6 +14,7 @@ class FileChooser(Gtk.FileChooserDialog):
      def __init__(self, parent,):
         super().__init__(transient_for=parent, use_header_bar=True)
 
+
         self.set_action(action=Gtk.FileChooserAction.OPEN)
         title = 'Select'
         self.set_title(title=title)
@@ -22,7 +23,6 @@ class FileChooser(Gtk.FileChooserDialog):
         self.set_current_folder(
             Gio.File.new_for_path(path=str(self.home)),
         )
-
         # Criando os botões que ficarão na barra de título (Gtk.HeaderBar()).
         self.add_buttons(
             '_Cancel', Gtk.ResponseType.CANCEL,
@@ -32,11 +32,12 @@ class FileChooser(Gtk.FileChooserDialog):
             response_id=Gtk.ResponseType.OK,
         )
         # Adicionando estilo no botão.
+
         btn_select.get_style_context().add_class(class_name='suggested-action')
         btn_cancel = self.get_widget_for_response(
             response_id=Gtk.ResponseType.CANCEL,
         )
-        btn_cancel.get_style_context().add_class(class_name='destructive-action')
+
 
         self.show()
 
@@ -50,4 +51,3 @@ class FileChooser(Gtk.FileChooserDialog):
             os.system(f'cp -r {glocalfile.get_path()} baserom.us.z64')
 
         widget.close()
-
