@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gi
+from pathlib import Path
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 gi.require_version('Notify', '0.7')
@@ -33,6 +34,11 @@ class MainWindow(Gtk.ApplicationWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+
+
+
+
+
         #window setup
         self.header = Gtk.HeaderBar()
         self.set_titlebar(self.header)
@@ -45,11 +51,16 @@ class MainWindow(Gtk.ApplicationWindow):
 
 
 
+        #rom open button
 
 
 
 
 
+        self.open_button = Gtk.Button(label="Open")
+        self.open_button.set_icon_name("document-open-symbolic")
+        self.header.pack_end(self.open_button)
+        self.open_button.connect("clicked", self.fileChooser)
 
 
         #notification setup
@@ -95,42 +106,6 @@ class MainWindow(Gtk.ApplicationWindow):
 
 
 
-        #Header hamburger menu
-
-
-
-
-
-
-
-        action = Gio.SimpleAction.new("fileChooser", None)
-        action.connect("activate", self.fileChooser)
-        self.add_action(action)  # Here the action is being added to the window, but you could add it to the
-                                 # application or an "ActionGroup"
-
-
-        # Create a new menu, containing that action
-        Headermenu = Gio.Menu.new()
-        Headermenu.append("Pick rom", "win.fileChooser")  # Or you would do app.something if you had attached the
-                                                      # action to the application
-
-        # Create a popover
-        self.popover = Gtk.PopoverMenu()  # Create a new popover menu
-        self.popover.set_menu_model(Headermenu)
-
-        # Create a menu button
-        self.hamburger = Gtk.MenuButton()
-        self.hamburger.set_popover(self.popover)
-        self.hamburger.set_icon_name("open-menu-symbolic")  # Give it a nice icon
-
-        # Add menu button to the header bar
-        self.header.pack_end(self.hamburger)
-
-
-
-
-
-
         #other menu for compilation
         global menu
         menu = Gio.Menu.new()
@@ -142,7 +117,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
 
 
-        #pane entries
+    #pane entries
 
 
 
@@ -349,7 +324,7 @@ class MainWindow(Gtk.ApplicationWindow):
 
         #entries
 
-    def fileChooser(self, action, param):
+    def fileChooser(self, button):
         FileChooser(parent=self)
 
     global compilationSpeed
@@ -432,6 +407,8 @@ class MainWindow(Gtk.ApplicationWindow):
         global compilationSpeed
         compilationSpeed = ""
         print(compilationSpeed)
+
+
 
 class MyApp(Adw.Application):
     def __init__(self, **kwargs):
