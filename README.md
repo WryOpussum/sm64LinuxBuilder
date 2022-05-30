@@ -17,3 +17,13 @@
 - Dependencies for Ubuntu: `sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-4.0 build-essential git python3 libglew-dev libsdl2-dev`
 
 - Dependencies for Arch btw: `sudo pacman -S python-gobject gtk4 base-devel python sdl2 glew`
+
+## Get the application
+
+- Download the zip from https://github.com/WryOpussum/sm64LinuxBuilder/releases/
+- extract it
+- double click the executable
+
+## Before Compiling
+
+- Select your rom using the file select icon on the top right
