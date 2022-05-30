@@ -20,7 +20,7 @@
 
 ## Get the application
 
-- Download the zip from https://github.com/WryOpussum/sm64LinuxBuilder/releases/
+- Download the zip from [here](https://github.com/WryOpussum/sm64LinuxBuilder/releases/)
 - extract it
 - double click the executable
 
